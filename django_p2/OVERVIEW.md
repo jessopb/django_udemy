@@ -1,0 +1,59 @@
+Goal:
+- models.py: User
+  - populate using faker
+- views.py /users
+  - User Info:
+    - First Name
+    - Last Name
+    - Email
+
+Notes:
+- setup
+- settings.py
+  - installed apps
+
+- project/urls.py
+
+- views.py
+- templates dir
+  - settings TEMPLATE_DIR
+    - TEMPLATE_DIR
+    - DIRS: TEMPLATE_DIR
+  - app/urls.py
+  - project/urls.py
+    - import path / re_path, include, views
+    - path( 'x/', include('app.urls'))
+  - views
+    - def x(request):
+      - dict = {'dict_item': 'dict_value'}
+      - return render(request, 'app/file.html',context=dict)
+  - htmlfile
+    - templates/app/file.html
+      - {{ dict_item }}
+- static files
+  - project/static/images
+  - project/static/css
+  - settings
+    - STATIC_DIR
+    - STATICFILES_DIRS = [ STATIC_DIR, ]
+  - file.html
+    - {% load staticfiles %}
+    - <img src="{% static 'filepath_after_static' %}" ...> </img>
+- models.py
+  - from django.db import models
+  - class ModelName(models.Model):
+    - field = models.CharField(max_length=264, unique=True)
+    - field2 = models.ForeignKey(OtherModel)
+    - def __str__(self): to return string representation
+- migrate
+  - python manage.py migrate
+  - python manage.py makemigratoins app
+- admin.py
+  - from django.contrib import admin
+  - from app.models import ModelName,OtherModel
+  - admin.site.register(ModelName)
+  - python manage.py createsuperuser
+- populate db
+  - faker (pip install)
+  - faker.readthedocs.io/
+  - populatescript.py
