@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -7,5 +8,6 @@
   <body>
     <h1>INDEX PAGE</h1>
     <h2>{{content}}</h2>
+    <img src="{% static "images/trolley.jpg"%}" alt="">
   </body>
 </html>
