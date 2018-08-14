@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django_app.models import OurUsers
 
 # Create your views here.
 
@@ -10,6 +11,6 @@ def index(request):
 
 
 def users(request):
-    users = ['Tom', 'Bob', 'Sam']
+    users = OurUsers.objects.order_by('last_name')
     udict = {'users': users}
     return render(request, 'django_app/users.html', context=udict)

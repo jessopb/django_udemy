@@ -11,7 +11,13 @@
       {% for u in users %}
       <tr>
         <td>
-          {{u}}
+          {{u.first_name}}
+        </td>
+        <td>
+          {{u.last_name}}
+        </td>
+        <td>
+          {{u.email}}
         </td>
       </tr>
       {% endfor %}
