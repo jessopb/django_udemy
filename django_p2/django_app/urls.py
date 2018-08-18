@@ -20,5 +20,6 @@ from django_app import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('users/', views.users, name='users'),
-    path('form/', views.form_view, name='form_view')
+    path('form/', views.form_view, name='form_view'),
+    path('modelform/', views.modelform_view, name='modelform_view'),
 ]
