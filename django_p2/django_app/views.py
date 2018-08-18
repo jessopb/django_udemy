@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django_app.models import OurUsers
+from . import forms
 
 # Create your views here.
 
@@ -14,3 +15,15 @@ def users(request):
     users = OurUsers.objects.order_by('last_name')
     udict = {'users': users}
     return render(request, 'django_app/users.html', context=udict)
+
+def form_view(request):
+    form = forms.UserForm()
+    if request.method == 'POST':
+        form = forms.UserForm(request.POST)
+        if form.is_valid():
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            email = form.cleaned_data['email']
+            res = OurUsers.objects.get_or_create(first_name=first_name, last_name=last_name,email=email)
+            print(res)
+    return render(request, 'django_app/form.html', {'form':form})
