@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 {% extends 'django_app/base.html' %}
 {% block body-block %}
-{% load staticfiles %}
-    <div class="jumbotron">
+    <!-- <div class="jumbotron"> -->
 
-      <h1>Fill out our form</h1>
+      <h1>Form:</h1>
       <form method="post">
         {{form.as_p}} {% csrf_token %}
         <input type="submit"
@@ -12,5 +11,5 @@
                class="btn btn-primary"
                value="Add User">
       </form>
-    </div>
+    <!-- </div> -->
 {% endblock %}
